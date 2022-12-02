@@ -1,0 +1,42 @@
+<mat-progress-bar *ngIf="loadingService.isLoading$ | async" mode="indeterminate"></mat-progress-bar>
+
+<!-- Contents Bar -->
+<div *ngIf="!taskDone" class="container form">
+    <h2 mat-title>{{ FormTitle }}</h2>
+    <div mat-dialog-content>
+        <tsid-input [value]="nameFormControl.value" [size]="'medium'" #cate [lable]="'Category Name'"
+            [placeholder]="'Category Name'" class="create-name" type="text">
+        </tsid-input>
+    </div>
+    <div mat-dialog-actions>
+        <button id="create" (click)="submit(cate.value)" mat-raised-button color="primary">
+            {{ ButtonTitle }}
+        </button>
+    </div>
+</div>
+
+<!-- Confirm Bar -->
+<div class="container confirm">
+    <div class="dataView" *ngIf="taskDone">
+        <h2 class="data-title" mat-dialog-title>{{ DataTitle }}</h2>
+        <div mat-dialog-content>
+            <tsid-input [value]="idCreate.value" [readonly]="true" [size]="'medium'" #cate [lable]="'Category ID'"
+                [placeholder]="'Category ID'" class="confirm-id" type="text">
+            </tsid-input>
+        </div>
+        <div mat-dialog-content>
+            <tsid-input [value]="nameCreate.value" [readonly]="true" [size]="'medium'" #cate [lable]="'Category Name'"
+                [placeholder]="'Category Name'" class="confirm-name" type="text">
+            </tsid-input>
+        </div>
+        <div class="actionbar" mat-dialog-actions>
+            <button class="back-after-create" (click)="back()" mat-stroked-button color="warn">
+                Back
+            </button>
+            <button class="continue-creating" *ngIf="DataTitle == 'Create Category Success'" (click)="clear()"
+                mat-stroked-button color="primary">
+                Continue Creating
+            </button>
+        </div>
+    </div>
+</div>

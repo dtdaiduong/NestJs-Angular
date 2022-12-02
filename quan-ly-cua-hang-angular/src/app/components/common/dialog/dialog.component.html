@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>{{ data.lable[0] }}</h1>
+<div mat-dialog-content>
+  <p *ngIf="data.lable[1]">{{ data.lable[1] }}</p>
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Write something..</mat-label>
+    <input matInput [(ngModel)]="data.role" />
+  </mat-form-field> -->
+
+  <mat-form-field
+    *ngFor="let key of Object.keys(data.data); let i = index"
+    appearance="fill"
+  >
+    <mat-label class="anhtu">{{ key }}</mat-label>
+    <input id="{{ key + i }}" matInput [(ngModel)]="data.data[key]" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="role-">
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+</div>

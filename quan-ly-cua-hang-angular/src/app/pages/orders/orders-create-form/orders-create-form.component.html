@@ -1,0 +1,83 @@
+<mat-drawer-container class="container-form">
+  <mat-drawer class="left" mode="side" opened>
+    <div>
+      <form (ngSubmit)="createOrderSubmit()" action="">
+        <h2 mat-dialog-title class="right-shift">{{ FormTitle }}</h2>
+        <div mat-dialog-content style="height: 60px;">
+          <mat-form-field appearance="fill" class="size">
+            <mat-label>Choose User</mat-label>
+            <mat-select id="selectUser" [formControl]="userid" required>
+              <mat-option *ngFor="let user of Users" [value]="user.id">
+                {{ user.firstname + " " + user.lastname }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            class="right-shift"
+          >
+            {{ ButtonTitle }}
+          </button>
+        </div>
+      </form>
+
+      <form>
+        <div class="tada" style="max-height: 361px;">
+          <div
+            class="list_items_container"
+            *ngFor="let item of listItem; let i = index"
+          >
+            <mat-form-field appearance="fill">
+              <mat-label>Name</mat-label>
+              <input readonly value="{{ item.name }}" matInput min="1" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="flex-size">
+              <mat-label>Quantity</mat-label>
+              <input
+                #a
+                (change)="onQuantityChange(a, i)"
+                type="number"
+                value="{{ item.quantity }}"
+                matInput
+                min="1"
+                oninput="this.value = Math.abs(+this.value)"
+              />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="flex-size">
+              <mat-label>price</mat-label>
+              <input
+                type="number"
+                readonly="true"
+                [value]="item.price"
+                matInput
+              />
+            </mat-form-field>
+            <button
+              type="button"
+              (click)="removeProduct(item)"
+              mat-icon-button
+              matTooltip="Remove"
+              class="removeCart"
+            >
+              <mat-icon style="color: rgb(231, 33, 59);">clear</mat-icon>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </mat-drawer>
+
+  <mat-drawer-content class="right">
+    <tsid-table
+      [paginatorinput]="paginator | async"
+      [displayedColumns]="displayedColumns"
+      [dataSource]="dataSoureListProduct | async"
+      (paginator)="handlePaginator($event)"
+      [actions]="actions"
+      (action)="handle($event)"
+      (search)="search($event)"
+    ></tsid-table>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="dataView">
+    <h2 mat-dialog-title>Delete</h2>
+    <h3 style="color: red">{{ data.name }} ?</h3>
+    <div class="actionbar" mat-dialog-actions>
+      <button (click)="cancel()" mat-stroked-button color="primary">
+        Cancel
+      </button>
+      <button
+        (click)="delete()"
+        mat-stroked-button
+        color="warn"
+        cdkFocusInitial
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>

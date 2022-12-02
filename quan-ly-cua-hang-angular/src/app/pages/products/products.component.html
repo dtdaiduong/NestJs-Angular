@@ -1,0 +1,28 @@
+<tsid-table
+  [paginatorinput]="paginator | async"
+  [displayedColumns]="displayedColumns"
+  [dataSource]="dataSource | async"
+  (paginator)="handlePaginator($event)"
+  [actions]="actions"
+  (action)="handle($event)"
+  (search)="search($event)"
+  [ListKeySort]="ListKeySort"
+  (sort)="handleSort($event)"
+  (sortClient)="sortClient($event)"
+  [hide]="hide"
+  [allOption]="allFruits"
+  [subsearch]="categories"
+></tsid-table>
+<div class="menu">
+  <button
+    routerLink="/admin/products/create"
+    #tooltip="matTooltip"
+    matTooltip="Create Product"
+    [matTooltipPosition]="'right'"
+    class="add"
+    mat-mini-fab
+    color="primary"
+  >
+    <mat-icon>edit</mat-icon>
+  </button>
+</div>

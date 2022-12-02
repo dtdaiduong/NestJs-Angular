@@ -1,0 +1,22 @@
+<div class="container cate-dialog">
+    <div class="dataView">
+        <h3 class="cate-dialog-title" mat-dialog-title>Confirm Delete Category</h3>
+        <div mat-dialog-content>
+            <mat-form-field appearance="outline">
+                <mat-label>ID</mat-label>
+                <input class="cate-dialog-id" readonly="true" [value]="data.id" matInput>
+            </mat-form-field>
+        </div>
+        <div mat-dialog-content>
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input class="cate-dialog-name" readonly="true" [value]="data.name" matInput>
+            </mat-form-field>
+        </div>
+        <div class="actionbar" mat-dialog-actions>
+            <button (click)="cancel()" mat-stroked-button color="primary">Cancel</button>
+            <button class="cate-dialog-delete" (click)="delete()" mat-stroked-button color="warn"
+                cdkFocusInitial>Delete</button>
+        </div>
+    </div>
+</div>

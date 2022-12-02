@@ -1,0 +1,114 @@
+{
+  "name": "quan-ly-cua-hang-angular",
+  "version": "0.0.0",
+  "scripts": {
+    "lint": "eslint src/*",
+    "lint:fix": "eslint src/* --fix",
+    "lint:quiet": "eslint src/* --quiet",
+    "ng": "ng",
+    "cypress:open": "npx cypress open",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
+    "storybook": "npm run docs:json && start-storybook -p 6006",
+    "build-storybook": "npm run docs:json && build-storybook",
+    "prepare": "husky install",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "eslint"
+    ],
+    "*.js": "eslint --cache --fix"
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setup.jest.ts"
+    ],
+    "moduleNameMapper": {
+      "^src/(.*)": "<rootDir>\\src"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules",
+      "<rootDir>/dist"
+    ],
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "statements": 90,
+        "branches": 90,
+        "functions": 90,
+        "lines": 90
+      }
+    },
+    "globals": {
+      "ts-test": {
+        "tsConfig": "<rootDir>/tsconfig.spec.json",
+        "stringifyContentPathRegex": "\\.html"
+      }
+    }
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~13.3.0",
+    "@angular/cdk": "^13.3.9",
+    "@angular/common": "~13.3.0",
+    "@angular/compiler": "~13.3.0",
+    "@angular/core": "~13.3.0",
+    "@angular/forms": "~13.3.0",
+    "@angular/material": "^13.3.9",
+    "@angular/platform-browser": "~13.3.0",
+    "@angular/platform-browser-dynamic": "~13.3.0",
+    "@angular/router": "~13.3.0",
+    "@ngrx/effects": "^13.2.0",
+    "@ngrx/store": "^13.2.0",
+    "@ngrx/store-devtools": "^13.2.0",
+    "jest-marbles": "^3.0.3",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~13.3.9",
+    "@angular/cli": "~13.3.9",
+    "@angular/compiler-cli": "~13.3.0",
+    "@babel/core": "^7.19.0",
+    "@compodoc/compodoc": "^1.1.19",
+    "@cypress/schematic": "^2.2.0",
+    "@ngrx/store-devtools": "^13.2.0",
+    "@storybook/addon-actions": "^6.5.11",
+    "@storybook/addon-essentials": "^6.5.11",
+    "@storybook/addon-interactions": "^6.5.11",
+    "@storybook/addon-links": "^6.5.11",
+    "@storybook/angular": "^6.5.11",
+    "@storybook/builder-webpack5": "^6.5.11",
+    "@storybook/manager-webpack5": "^6.5.11",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/jasmine": "~3.10.0",
+    "@types/jest": "^28.0.0",
+    "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.37.0",
+    "babel-loader": "^8.2.5",
+    "cypress": "^10.11.0",
+    "cypress-localstorage-commands": "^2.2.1",
+    "eslint": "^8.23.1",
+    "eslint-config-prettier": "8.5.0",
+    "husky": "^8.0.1",
+    "jasmine-core": "~4.0.0",
+    "jest": "^28.0.0",
+    "jest-preset-angular": "^12.2.2",
+    "karma": "~6.3.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.1.0",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "~1.7.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "2.7.1",
+    "typescript": "~4.6.2"
+  }
+}

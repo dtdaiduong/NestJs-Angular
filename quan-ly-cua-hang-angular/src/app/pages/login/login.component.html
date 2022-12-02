@@ -1,0 +1,46 @@
+<div class="container">
+  <h3>Admin Panel</h3>
+  <tsid-input
+    (ngModelChange)="checkDisable()"
+    [errorList]="emailErrorList"
+    [inputControl]="emailFormControl"
+    [size]="'medium'"
+    #email
+    id="email"
+    [lable]="'Email'"
+    [placeholder]="'Email'"
+    class="text"
+    type="email"
+  >
+  </tsid-input>
+  <tsid-input
+    (ngModelChange)="checkDisable()"
+    [errorList]="passwordErrorList"
+    [inputControl]="passwordFormControl"
+    [size]="'medium'"
+    id="password"
+    #pass
+    [lable]="'Password'"
+    [placeholder]="'Password'"
+    class="text"
+    type="password"
+  >
+  </tsid-input>
+  <button
+    color="primary"
+    [disabled]="checkDisable()"
+    type="submit"
+    (click)="login(email.value, pass.value)"
+    mat-raised-button
+    id="btn-login"
+  >
+    Login
+  </button>
+  <div class="register">
+    <a href="/admin"> You don't have an account? Register here! </a>
+  </div>
+</div>
+<mat-progress-bar
+  *ngIf="loadingService.isLoading$ | async"
+  mode="indeterminate"
+></mat-progress-bar>

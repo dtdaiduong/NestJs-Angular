@@ -1,0 +1,96 @@
+<h1 class="title">User Form</h1>
+<div>
+  <form [formGroup]="userForm">
+    <mat-form-field class="field-form" appearance="legacy">
+      <mat-label>First name</mat-label>
+      <input
+        id="firstname"
+        ngDefaultControl
+        formControlName="firstname"
+        matInput
+        placeholder="Placeholder"
+      />
+    </mat-form-field>
+    <mat-form-field class="field-form" appearance="legacy">
+      <mat-label>Last name</mat-label>
+      <input
+        id="lastname"
+        ngDefaultControl
+        formControlName="lastname"
+        matInput
+        placeholder="Placeholder"
+      />
+    </mat-form-field>
+    <mat-form-field class="field-form" appearance="legacy">
+      <mat-label>Email</mat-label>
+      <input
+        id="email"
+        ngDefaultControl
+        formControlName="email"
+        matInput
+        placeholder="Placeholder"
+      />
+    </mat-form-field>
+    <mat-form-field class="field-form" appearance="legacy">
+      <mat-label>Phone</mat-label>
+      <input
+        id="phone"
+        ngDefaultControl
+        formControlName="phone"
+        matInput
+        placeholder="Placeholder"
+      />
+    </mat-form-field>
+    <mat-form-field class="field-form" appearance="legacy">
+      <mat-label>Address</mat-label>
+      <input
+        id="address"
+        ngDefaultControl
+        formControlName="address"
+        matInput
+        placeholder="Placeholder"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-chip-list" appearance="fill">
+      <mat-label>Choose roles</mat-label>
+      <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+          {{ fruit }}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <input
+          id="roles"
+          placeholder="Search users with roles..."
+          #fruitInput
+          [formControl]="fruitCtrl"
+          [matAutocomplete]="auto"
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        />
+      </mat-chip-list>
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="selected($event)"
+      >
+        <mat-option
+          *ngFor="let fruit of filteredFruits | async"
+          id="{{ fruit }}"
+          [value]="fruit"
+        >
+          {{ fruit }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <br />
+    <button
+      style="margin-left: 10%"
+      mat-raised-button
+      color="primary"
+      (click)="addUser()"
+    >
+      {{ actionBtn }}
+    </button>
+  </form>
+</div>

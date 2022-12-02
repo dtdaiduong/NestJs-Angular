@@ -1,0 +1,67 @@
+.admin-container
+  position: absolute
+  top: 60px
+  bottom: 0
+  left: 0
+  right: 0
+  // min-height: 500px
+.admin-left
+  width: 20%
+.admin-right
+  width: 80%
+.container
+  display: flex
+  position: relative
+  top: 64px
+.child-node
+  padding-left: 0
+
+.menu
+  bottom: 0
+  width: 200px
+  min-width: 200px
+  min-width: 200px
+  height: 500px
+  border-right: solid 0.5px
+  border-right-color: rgba(187, 177, 174,1)
+  /* background-color: aqua; */
+
+.content
+  flex-grow: 10
+  height: 500px
+  overflow-y: scroll
+
+.example-tree-invisible
+  display: none
+
+.example-tree ul,
+.example-tree li
+  margin-top: 0
+  margin-bottom: 0
+  list-style-type: none
+
+/*
+ * This padding sets alignment of the nested nodes.
+ */
+.example-tree .mat-nested-tree-node div[role=group]
+  padding-left: 40px
+
+/*
+ * Padding for leaf nodes.
+ * Leaf nodes need to have padding so as to align with other non-leaf nodes
+ * under the same parent.
+ */
+.example-tree div[role=group] > .mat-tree-node
+  padding-left: 40px
+
+button
+  border: none
+  background-color: white
+
+.mat-tree-node,button
+  cursor: pointer
+
+.action-bar
+  display: flex
+  flex-direction: row
+  margin: 10px 0px 0px 10px

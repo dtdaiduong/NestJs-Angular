@@ -1,0 +1,33 @@
+<mat-progress-bar
+  *ngIf="loadingService.isLoading$ | async"
+  mode="indeterminate"
+></mat-progress-bar>
+<div>
+  <tsid-table
+    id="cateTable"
+    [paginatorinput]="paginator | async"
+    (action)="handle($event)"
+    (search)="search($event)"
+    (sort)="sort($event)"
+    (paginator)="handlePaginator($event)"
+    [actions]="actions"
+    [hide]="hide"
+    [dataSource]="dataSource | async"
+    [displayedColumns]="displayedColumns"
+    [ListKeySort]="listSort"
+  ></tsid-table>
+</div>
+<div class="menu">
+  <button
+    id="create-button"
+    routerLink="/admin/categories/create"
+    #tooltip="matTooltip"
+    matTooltip="Create Category"
+    [matTooltipPosition]="'right'"
+    class="add"
+    mat-mini-fab
+    color="primary"
+  >
+    <mat-icon>edit</mat-icon>
+  </button>
+</div>

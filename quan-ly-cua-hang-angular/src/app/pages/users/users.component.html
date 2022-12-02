@@ -1,0 +1,32 @@
+<mat-progress-bar
+  *ngIf="loadingService.isLoading$ | async"
+  mode="indeterminate"
+></mat-progress-bar>
+<mat-spinner *ngIf="hide"></mat-spinner>
+<div>
+  <tsid-table
+    [paginatorinput]="paginator | async"
+    (action)="handle($event)"
+    (paginator)="handlepaginator($event)"
+    (search)="handleSearch($event)"
+    (sortClient)="sortClient($event)"
+    [actions]="actions"
+    [hide]="hide"
+    [dataSource]="dataSource | async"
+    [displayedColumns]="displayedColumns"
+    [allOption]="allFruits"
+    [subsearch]="roles"
+    [ListKeySort]="ListKeySort"
+    (sort)="handleSort($event)"
+  ></tsid-table>
+</div>
+<div class="example-button-container">
+  <button
+    (click)="openCreate()"
+    mat-fab
+    color="warn"
+    aria-label="Example icon button with a home icon"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

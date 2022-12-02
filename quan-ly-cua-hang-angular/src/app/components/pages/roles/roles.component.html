@@ -1,0 +1,31 @@
+<!-- <mat-progress-bar
+  *ngIf="loadingService?.isLoading$ | async"
+  mode="indeterminate"
+></mat-progress-bar> -->
+<!-- <div *ngFor="let i of contactForm.array"> -->
+
+<!-- </div> -->
+<div class="container-roles">
+  <button
+    (click)="openCreate()"
+    mat-fab
+    color="accent"
+    aria-label="create"
+    class="create-role"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+  <tsid-table
+    (sort)="onSort($event)"
+    [ListKeySort]="ListKeySort"
+    [paginatorinput]="paginator | async"
+    (action)="handleActions($event)"
+    (search)="handleSearch($event)"
+    (sortClient)="handleSortClient($event)"
+    (paginator)="handlePaginator($event)"
+    [actions]="actions"
+    [hide]="hide"
+    [dataSource]="dataSource | async"
+    [displayedColumns]="displayedColumns"
+  ></tsid-table>
+</div>

@@ -1,0 +1,28 @@
+<tsid-table
+  [paginatorinput]="paginator | async"
+  [displayedColumns]="displayedColumns"
+  [dataSource]="dataSoure | async"
+  (paginator)="handlePaginator($event)"
+  [actions]="actions"
+  (action)="handleActions($event)"
+  (search)="onSearch($event)"
+  (sort)="onSort($event)"
+  [ListKeySort]="ListKeySort"
+  (sortClient)="handleSortClient($event)"
+  >
+  <!-- (sortClient)="handleSortClient($event)" -->
+  
+</tsid-table>
+<div class="menu">
+  <button
+    routerLink="/admin/orders/create"
+    #tooltip="matTooltip"
+    matTooltip="Create Order"
+    [matTooltipPosition]="'right'"
+    class="add"
+    mat-mini-fab
+    color="primary"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

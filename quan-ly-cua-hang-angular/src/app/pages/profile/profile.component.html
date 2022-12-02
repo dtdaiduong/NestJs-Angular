@@ -1,0 +1,33 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image">
+            <img src="../../../assets/image/profile.jpg" />
+        </div>
+        <mat-card-title id="profile-name">{{ profile.firstname }} {{ profile.lastname }}</mat-card-title>
+        <mat-card-subtitle id="profile-email">{{
+            profile.email
+            }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="chiplist">
+            <mat-chip-list>
+                <mat-chip color="primary" selected *ngFor="let item of profile.roles">
+                    {{ item.name }}
+                </mat-chip>
+            </mat-chip-list>
+        </div>
+        <p><b>Phone: </b> {{ profile.phone }}</p>
+        <p><b>Address: </b> {{ profile.address }}</p>
+        <p>
+            <b>Register Date: </b>
+            {{ profile.created_at | date: "dd/MM/YYYY - HH:mm:ss" }}
+        </p>
+        <p>
+            <b>Last Login: </b>
+            {{ profile.updated_at | date: "dd/MM/YYYY - HH:mm:ss" }}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>Edit</button>
+    </mat-card-actions>
+</mat-card>

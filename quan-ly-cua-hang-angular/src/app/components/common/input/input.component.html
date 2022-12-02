@@ -1,0 +1,10 @@
+<mat-form-field class="Search {{ size }}" appearance="outline">
+  <mat-label>{{ lable }}</mat-label>
+  <input [readonly]="readonly" [formControl]="inputControl" type="{{ type }}" matInput placeholder="{{ placeholder }}"
+    [(ngModel)]="value" />
+  <mat-error *ngFor="let err of errorList">
+    <mat-error *ngIf="inputControl.hasError(err.name)">
+      {{ err.message }}
+    </mat-error>
+  </mat-error>
+</mat-form-field>
