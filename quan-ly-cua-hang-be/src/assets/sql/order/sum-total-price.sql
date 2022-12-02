@@ -1,0 +1,1 @@
+SELECT sum(total_price) FROM (getPriceOfProduct) as total_prices;

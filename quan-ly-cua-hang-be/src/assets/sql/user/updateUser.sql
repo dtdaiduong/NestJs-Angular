@@ -1,0 +1,1 @@
+UPDATE users SET email=$1 WHERE id=$2 RETURNING profile_id;

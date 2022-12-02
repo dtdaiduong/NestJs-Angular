@@ -1,0 +1,1 @@
+select * from user_role where role_id = $1
